@@ -1,0 +1,36 @@
+
+<div>
+
+  <form [formGroup]="paymentForm" (ngSubmit)="submitForm()">
+
+    <div class="form-group">
+      <label>Name on Card</label>
+      <input class="form-control" type="text" formControlName="cardName" placeholder="John Krane">
+      <div *ngIf="inValid('cardName')" class="alert alert-danger">Invalid Cardholder Name.</div>
+    </div>
+
+    <div class="form-group">
+      <label>Card Number</label>
+      <input class="form-control" type="text" formControlName="cardNumber" placeholder="1234123412341234">
+      <div *ngIf="inValid('cardNumber')" class="alert alert-danger">Invalid Card Number.</div>
+    </div>
+
+    <div class="form-group expiry">
+      <label>Date of Expiration</label>
+      <input class="form-control month" type="text" formControlName="expiryMonth" placeholder="07">
+      <input class="form-control year" type="text" formControlName="expiryYear" placeholder="2017">
+      <div *ngIf="inValid('expiryMonth') || inValid('expiryYear')" class="alert alert-danger">Invalid Date of Expiration.</div>
+    </div>
+
+    <div class="form-group cvc">
+      <label>CVV/CVC</label>
+      <input class="form-control" type="text" formControlName="cvv" placeholder="123">
+      <div *ngIf="inValid('cvv')" class="alert alert-danger">Invalid CVV / CVC Number.</div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <h3 class="center-block text-center">{{displayMessage}}</h3>
+  </form>
+</div>

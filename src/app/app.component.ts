@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'vanhackng';
+  selectedCcustomer = '';
+
+  selectedSlug($event){
+this.selectedCcustomer = $event;
+  }
 }
